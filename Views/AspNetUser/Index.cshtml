@@ -1,0 +1,97 @@
+﻿@model ICollection<FPTBook1.Models.AspNetUser>
+@{
+    int count = 0;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USer Profile</title>
+</head>
+<body>
+   <h1 class="text-success text-center">User Profile</h1>
+   <div id="tools">
+       <h5>Search user: </h5>
+        <form id="search" method="get" asp-action="IndexSearch">
+            <input type="search" placeholder="Enter the user name" value="@ViewData["GetUser"]" name="userSearch" style="width: 200px; padding: 5px" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </form>
+       <a id="add" class="btn btn-warning" asp-action="CatRequest">Category Request</a><br />
+   </div>
+   <div class="user">
+       <h5>Admin:
+           @foreach(var user in Model)
+            {
+                if(@user.Roles == "Admin")
+                {
+                    count++;
+                }
+            }
+        @count
+            @{
+                count = 0;
+            }
+        users
+       </h5>
+       <h5>
+           Store Owner:
+           @foreach(var user in Model)
+            {
+                if(@user.Roles == "Store Owner")
+                {
+                    count++;
+                }
+            }
+            @count
+            @{
+                count = 0;
+            }
+            users
+       </h5>
+       <h5>
+           Customer:
+           @foreach(var user in Model)
+            {
+                if(@user.Roles == "Customer")
+                {
+                    count++;
+                }
+            }
+            @count
+            @{
+                count = 0;
+            }
+            users
+       </h5>
+       <br />
+   </div>
+    <div id="user-profile"> 
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Role</th>
+            </tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <a class="btn btn-warning" asp-action="Person" asp-route-id="@user.Id">
+                            <img src="@user.Image" width="180" height="200">
+                        </a>
+                    </td>
+                    <td>@user.Roles</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

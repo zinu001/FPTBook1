@@ -1,0 +1,46 @@
+﻿#table_list {
+    border: 5px;
+    border-collapse: collapse;
+}
+th {
+    background-color: #FF6F00;
+    text-align: center;
+    border-collapse: collapse;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Arial;
+}
+td {
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    font-family: .VnTime;
+    background-color: #FFF176;
+}
+body {
+    background-image: url('https://us.123rf.com/450wm/peshkova/peshkova1610/peshkova161001396/65575977-close-up-of-large-white-table-with-laptops-and-sunlight-in-modern-library-interior-with-bookcase-and.jpg');
+    background-size: cover;
+}
+.text{
+    font-size: 30px;
+    color: orangered;
+}
+#edit {
+    background-color: #4CAF50;
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    border-radius: 90%;
+}
+#delete {
+    background-color: #F44336;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    border-radius: 90%;
+}
+}
