@@ -1,0 +1,27 @@
+﻿.column {
+    float: left;
+}
+
+.half {
+    width: 50%;
+    height: 100%;
+}
+
+.last {
+    float: none;
+    width: auto;
+}
+
+h2{
+    font-family: .VnArial;
+    font-size: 30px;
+    padding: 20px;
+}
+#profile{
+    text-align: center;
+    padding-right:40px;
+}
+h3{
+    padding: 10px;
+    text-align: left;
+}

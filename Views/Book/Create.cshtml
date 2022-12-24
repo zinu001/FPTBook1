@@ -1,0 +1,66 @@
+﻿@model FPTLibrary.Models.Book;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new Book</title>
+</head>
+<body>
+    <div class="container col-md-8 text-center mt-3">
+        <h1 class="text text-danger">Add new book</h1>
+        <form class="card p-2 bg-white" action="Create" method="post">
+            <div class="form-group">
+                <label class="text text-info">Book Name</label>
+                <input class="form-control" asp-for="Name" />
+                <span class="text text-danger" asp-validation-for="Name"></span>
+            </div>
+            <label>Select category</label>
+           <select class="form-control" asp-for="CategoryId">
+               <option>Selectn category</option>
+                @foreach(var category in ViewBag.Categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select><br />
+            <span class="text text-danger" asp-validation-for="CategoryId"></span>
+            <div class="form-group">
+                <label class="text text-info">Book Image</label>
+                <input class="form-control" asp-for="Image" />
+                <span class="text text-danger" asp-validation-for="Image"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author"></label>
+                <input class="form-control" asp-for="Author" />
+                <span class="text-black-50 text-danger" asp-validation-for="Author"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Published_Date"></label>
+                <input class="form-control" asp-for="Published_Date" />
+                <span class="text-black-50 text-danger" asp-validation-for="Published_Date"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input class="form-control" asp-for="Quantity" />
+                <span class="text-black-50 text-danger" asp-validation-for="Quantity"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input class="form-control" asp-for="Price" />
+                <span class="text-black-50 text-danger" asp-validation-for="Price"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <input class="form-control" asp-for="Description" />
+                <span class="text-black-50 text-danger" asp-validation-for="Description"></span>
+            </div>    
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Add" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

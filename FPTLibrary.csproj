@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-FPTLibrary-9FCFFDA7-E688-49F8-BC0E-45780AD1F721</UserSecretsId>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Views\Book\Book_Category.cshtml" />
+    <None Include="Views\Book\Create.cshtml" />
+    <None Include="Views\Book\Detail.cshtml" />
+    <None Include="Views\Book\Edit.cshtml" />
+    <None Include="Views\Book\Index.cshtml" />
+    <None Include="Views\Category\Create.cshtml" />
+    <None Include="Views\Category\Edit.cshtml" />
+    <None Include="Views\Category\Index.cshtml" />
+    <None Include="Views\Order\Create.cshtml" />
+    <None Include="Views\Order\Detail.cshtml" />
+    <None Include="Views\Order\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.25" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+</Project>

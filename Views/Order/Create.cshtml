@@ -1,0 +1,44 @@
+﻿@model FPTLibrary.Models.Order
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/book_detail.css" />
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <h1 class="text-success">Book Details</h1><br />
+    </center><br />
+    <form action="Create" method="post">
+            <div id="profile" class="column half"> 
+            @foreach(var book in ViewBag.Books)
+            {
+                <input type="hidden" asp-for="BookId" value="@book.Id">
+                <img src="@book.Image" width="250" height="350" /> <br />  
+                <h2>@book.Name</h2>
+            }
+        </div>
+            <div class="column last">
+                    <h3>Cart detail</h3><br>
+                    <div class="form-group">
+                        <label asp-for="Quantity"></label>
+                        <input style="width: 100px;" class="form-control" asp-for="Quantity" />
+                    <span class="text-black-50 text-danger" asp-validation-for="Quantity"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Payment"></label>
+                        <select style="width: 300px;" class="form-control" asp-for="Payment" asp-items="Html.GetEnumSelectList<Payment>()">
+                            <option>Select a payment method ...</option>
+                        </select>
+                        <span class="text text-danger" asp-validation-for="Payment"></span>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Purchase" onclick="    return confirm('Confirm buying?');">
+                    <a class="btn btn-primary" asp-controller="Book" asp-action="Index">Cancel</a>
+                </div>
+    </form>
+</body>
+</html>

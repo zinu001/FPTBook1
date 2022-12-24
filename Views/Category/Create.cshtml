@@ -1,0 +1,31 @@
+﻿@model FPTLibrary.Models.Category;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new category</title>
+</head>
+<body>
+    <div class="container col-md-8 text-center mt-3">
+    <h1 class="text text-danger">Create new category</h1>
+    <form class="card p-2 bg-white" action="Create" method="post">
+        <div class="form-group">
+            <label class="text text-info">Category Name</label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label class="text text-info">Category Image</label>
+            <input class="form-control" asp-for="Image" />
+            <span class="text text-danger" asp-validation-for="Image"></span>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Create" />
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model FPTLibrary.Models.Order
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/order_detail.css" />
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Order number @Model.Id detail</h1>
+    </center><br />
+    <table class="table table-responsive">
+        <tr>
+            <th>Order ID</th>
+            <th>Book Name</th>
+            <th>Order Date</th>
+            <th>Book quantity</th>
+            <th>Total Price</th>
+            <th>Payment method</th>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>
+                <a asp-controller="Book" asp-action="Detail" asp-route-id="@Model.BookId">
+                    <img src="@Model.Book.Image" width="150px" height="180px" /><br />
+                    <h2>@Model.Book.Name</h2>
+                </a>
+            </td>
+            <td>@Model.Order_Date.ToShortDateString()</td>
+            <td>@Model.Quantity</td>
+            <td>@(Model.Quantity * Model.Book.Price)</td>
+            <td>@Model.Payment</td>
+        </tr>
+    </table>
+</body>
+</html>

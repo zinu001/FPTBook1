@@ -1,0 +1,46 @@
+﻿@model ICollection<FPTLibrary.Models.Category>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin View Categories</title>
+    <link rel="stylesheet" href ="~/css/category_index.css" />
+</head>
+<body>
+    <center>
+    <div class="container col-md-8 mt-3">
+    <h1 class="text-success">Category List</h1><br />
+    <a class="btn btn-warning" asp-action="Create">Create new category</a><br /><br />
+    <table class="table-bordered" id="table_list">
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Category Image</th>
+                <th>Options</th>
+            </tr>      
+            @foreach(var category in Model)
+            {
+                <tr>
+                    <td class="text">@category.Id</td>
+                    <td class="text">@category.Name</td>
+                    <td> 
+                        
+                        <a asp-controller="Book" asp-action="Book_Category" asp-route-id="@category.Id">
+                            <img src="@category.Image" width="150" height="220">
+                        </a>
+                    </td>
+                    <td>
+                        <a id="edit" class="btn btn-warning" asp-action="Edit" asp-route-id="@category.Id">Edit</a><br><br>
+                        <a id="delete" class="btn btn-warning" asp-action="Delete" asp-route-id="@category.Id" onclick="    return confirm('Are you sure you want to delete this category?');">Delete</a>
+                    </td>
+                </tr>
+            }
+    </table>
+    
+</div><br />
+</center>
+</body>
+</html>

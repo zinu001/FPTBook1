@@ -1,0 +1,40 @@
+﻿@model FPTLibrary.Models.Book
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="~/css/book_index.css" />
+</head>
+<body>
+   <h1 class="text-success text-center">Book List</h1>
+    <div id="tools">
+        <a id="add" class="btn btn-warning" asp-action="Create">Add new book</a><br /><br />
+        <h5>Search books: </h5>
+        <form id="search" method="get" asp-action="Index">
+            <input type="search" placeholder="Enter the book name" value="@ViewData["GetBook"]" name="BookSearch" style="width: 200px; padding: 5px" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a class="btn btn-primary" asp-action="Index">Get All Books</a>
+        </form>
+    </div>
+    <br /><br />
+    <div id="book_content"> 
+         @foreach(var book in ViewBag.Books)
+         {
+                <ul id="book_list">
+                    <li id="list">                          
+                            <a id="image" asp-action="Detail" asp-route-id="@book.Id">
+                                    <img src="@book.Image" width="180" height="250">
+                            </a> 
+                            <h2>@book.Name</h2>                      
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@book.Id">Edit</a>
+                            <a class="btn btn-warning" asp-action="Delete" asp-route-id="@book.Id" onclick="    return confirm('Are you sure you want to remove this book?');">Delete</a>                       
+                    </li>
+                </ul>
+         }
+    </div>
+</body>
+</html>

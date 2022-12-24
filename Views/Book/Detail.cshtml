@@ -1,0 +1,32 @@
+﻿@model FPTLibrary.Models.Book;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/book_detail.css" />
+    <title>Book details</title>
+</head>
+<body>
+    <center>
+    <h1 class="text-success">Book Details</h1><br />
+    </center><br />
+    <div id="profile" class="column half">
+         <img src="@Model.Image" width="250" height="350" /> <br />  
+         <h2>@Model.Name</h2>
+    </div>
+    <div class="column last">
+        <a asp-action="Book_Category" asp-route-id="@Model.CategoryId">
+            <h3>Category: @Model.Category.Name</h3>
+        </a><br />
+        <h3>Author: @Model.Author</h3><br />
+        <h3>Published date: @Model.Published_Date</h3><br />
+        <h3>Price: @Model.Price</h3><br />
+        <h3>Quantity: @Model.Quantity</h3><br />
+        
+    </div><br />
+    <h4>Description: @Model.Description</h4><br />
+</body>
+</html>
